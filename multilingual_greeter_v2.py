@@ -90,8 +90,12 @@ def greet(name: str, greetings_options: Dict[int, str], lang_choice: int) -> Non
     """
     print(greetings_options[lang_choice],name)
 
+def select_mode():
+    return int(input(('please select mode:\n1: Admin Mode\n2: User Mode\n:')))
+
 
 if __name__ == '__main__':
+    select_mode()
     print_language_options(lang_dict)
     chosen_lang = language_input()
     while language_choice_is_valid(lang_dict, chosen_lang) is False:
