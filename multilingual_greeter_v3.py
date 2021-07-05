@@ -1,4 +1,5 @@
 from typing import Dict
+import random
 
 # Populate this dictionary with at least two languages.
 # Use integers for keys and strings for values.
@@ -13,7 +14,7 @@ name_prompt_dict = { 1 : 'What is your name?', 2 : '¿Cuál es su nombre?'
 
 # Populate this dictionary with appropriate prompts that correspond with the ids from lang_dict.
 # Example: Key = 1. Value = 'Hello'.
-greetings_dict = { 1 : 'Hello', 2 : 'Hola'
+greetings_dict = { 1 : ['Hello', 'Whats up', "How's it going"], 2 : ['Hola', 'Qué pasa', 'Cómo te va']
 }
 
 
@@ -88,7 +89,10 @@ def greet(name: str, greetings_options: Dict[int, str], lang_choice: int) -> Non
     :param lang_choice: The language the user has chosen.
     :return:
     """
-    print(greetings_options[lang_choice],name)
+    random_greeting_index = random.randint(0,len(greetings_dict)-1)
+    ran_greet = greetings_options
+
+    print(greetings_options[lang_choice][random_greeting_index],name)
 
 def select_mode():
     global lang_dict
