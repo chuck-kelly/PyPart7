@@ -108,14 +108,22 @@ def select_mode():
                 print("Add name prompt for ",add_langauge)
                 add_name_promt = input(':')
                 name_prompt_dict[len(name_prompt_dict)+1] = add_name_promt
-                print('Add a greeting for ',add_langauge)
-                add_greet = input(": ")
-                greetings_dict[len(greetings_dict)+1] = add_greet
+                print('Add first greeting for ',add_langauge)
+                add_greet1 = input(": ")
+                print('Add second greeting for ',add_langauge)
+                add_greet2 = input(": ")
+                print('Add third greeting for ',add_langauge)
+                add_greet3 = input(": ")
+                add_greet_list = [add_greet1,add_greet2,add_greet3]
+                greetings_dict[len(greetings_dict)+1] = add_greet_list
             elif choice_2 == '2':
                 print_language_options(lang_dict)
                 lang_select = int(input(': '))
-                greet_change = input('What is the new greeting: ')
-                greetings_dict[lang_select] = greet_change
+                greet_change = input('What is the new greeting to add: ')
+                current_list = greetings_dict[lang_select]
+                add_greet_LIST=current_list + [greet_change]
+                greetings_dict[lang_select] = add_greet_LIST
+                
                 print(greetings_dict)
             else:
                 print('Invalid input.')
